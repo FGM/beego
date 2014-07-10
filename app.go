@@ -36,7 +36,7 @@ func NewApp() *App {
 }
 
 // Run beego application.
-func (app *App) Run() {
+func (app *App) Run() chan bool {
 	addr := HttpAddr
 
 	if HttpPort != 0 {
@@ -93,5 +93,6 @@ func (app *App) Run() {
 		}
 	}
 
-	<-endRunning
+	return endRunning
+	//<-endRunning
 }
